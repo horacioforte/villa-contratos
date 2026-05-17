@@ -227,7 +227,8 @@ const ANTHROPIC_API_KEY = k1 + k2;
       const data = await res.json();
       if (data.error) throw new Error(data.error.message);
       const raw = data.content?.map(b => b.text || "").join("") || "";
-      setResult(JSON.parse(raw.replace(/```json|```/g, "").replace(/[\u0000-\u001F\u007F]/g, " ").trim()));      setActiveTab("violacoes");
+      const sanitized = raw.replace(/```json|```/g, "").replace(/:\s*R\$\s*/g, ': "R$ ').replace(/(\d+)\.(\d{3})/g, '$1$2').trim();
+setResult(JSON.parse(sanitized));
     } catch (err) {
       setError(`Erro ao analisar: ${err.message}. Verifique se a chave da API está correta.`);
     } finally {
