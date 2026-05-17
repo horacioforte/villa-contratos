@@ -218,7 +218,7 @@ const ANTHROPIC_API_KEY = k1 + k2;
         },
         body: JSON.stringify({
           model: "claude-opus-4-5",
-          max_tokens: 2000,
+          max_tokens: 4000,
           system: buildPrompt(contractType),
           messages: [{ role: "user", content: messageContent }],
         }),
