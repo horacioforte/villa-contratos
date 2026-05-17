@@ -82,11 +82,7 @@ REGRAS DE OURO (INEGOCIÁVEIS): ${GOLDEN_RULES}
 
 PROPOSTA VILLA - TIPO ${type}: ${PROPOSALS_BY_TYPE[type] || PROPOSALS_BY_TYPE["Geral / Outro"]}
 
-IMPORTANTE: Retorne SOMENTE um objeto JSON válido. Sem texto antes ou depois. Sem markdown. Sem blocos de codigo. Apenas o JSON puro começando com { e terminando com }.
-
-Formato exato:
-{"tipoDetectado":"","partes":["",""],"prazo":"","valor":"","reajuste":"","riscoGeral":"Médio","resumo":"","conformes":[{"regra":"","detalhe":""}],"conflitos":[{"regra":"","contratoCliente":"","villaEspera":"","gravidade":"Alta"}],"violacoesRegrasDeOuro":[{"numero":1,"regra":"","problema":""}],"clausulasFaltando":[{"clausula":"","importancia":"Alta","descricao":""}],"recomendacoes":[{"acao":"","prioridade":"Alta"}]}`;
-
+IMPORTANTE: Retorne SOMENTE JSON puro. Sem markdown. Use apenas aspas duplas. Nunca coloque aspas dentro dos valores de texto. Substitua aspas dentro de textos por parenteses. Formato: {"tipoDetectado":"","partes":["",""],"prazo":"","valor":"","reajuste":"","riscoGeral":"Médio","resumo":"","conformes":[{"regra":"","detalhe":""}],"conflitos":[{"regra":"","contratoCliente":"","villaEspera":"","gravidade":"Alta"}],"violacoesRegrasDeOuro":[{"numero":1,"regra":"","problema":""}],"clausulasFaltando":[{"clausula":"","importancia":"Alta","descricao":""}],"recomendacoes":[{"acao":"","prioridade":"Alta"}]}`;
 const C = {
   bg:"#F4F6FA", surface:"#FFFFFF", surfaceAlt:"#F8F9FC",
   border:"#E2E8F0", borderStrong:"#CBD5E1",
