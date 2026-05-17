@@ -217,7 +217,7 @@ const ANTHROPIC_API_KEY = k1 + k2;
           "anthropic-dangerous-direct-browser-access": "true",
         },
         body: JSON.stringify({
-          model: "claude-opus-4-5",
+          model: "claude-opus-4-5-20251001",
           max_tokens: 4000,
           system: buildPrompt(contractType),
           messages: [{ role: "user", content: messageContent }],
@@ -227,8 +227,7 @@ const ANTHROPIC_API_KEY = k1 + k2;
       const data = await res.json();
       if (data.error) throw new Error(data.error.message);
       const raw = data.content?.map(b => b.text || "").join("") || "";
-      setResult(JSON.parse(raw.replace(/```json|```/g, "").trim()));
-      setActiveTab("violacoes");
+      setResult(JSON.parse(raw.replace(/```json|```/g, "").replace(/[\u0000-\u001F\u007F]/g, " ").trim()));      setActiveTab("violacoes");
     } catch (err) {
       setError(`Erro ao analisar: ${err.message}. Verifique se a chave da API está correta.`);
     } finally {
