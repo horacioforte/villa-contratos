@@ -174,8 +174,7 @@ export default function App() {
 
   // ── IMPORTANTE: coloque sua chave da API Anthropic aqui ──
   // Gere em: https://console.anthropic.com/settings/keys
-  const ANTHROPIC_API_KEY = "sk-ant-api03-QVC9qwmEwOmrGYteDCeQKYhD0KBYdJkDAjNkkQXOmsCO2hOavg0xtMcrccd1TPW51sx8OlQ-oPcg_AAA";
-
+  const ANTHROPIC_API_KEY = "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";
   const handleFile = (file) => {
     if (!file) return;
     setFileName(file.name);
