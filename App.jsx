@@ -217,7 +217,8 @@ const ANTHROPIC_API_KEY = k1 + k2;
           "anthropic-dangerous-direct-browser-access": "true",
         },
         body: JSON.stringify({
-          model: "claude-haiku-4-5",
+          model: "claude-sonnet-4-6
+",
           max_tokens: 4000,
           system: buildPrompt(contractType),
           messages: [{ role: "user", content: messageContent }],
