@@ -366,7 +366,9 @@ const ANTHROPIC_API_KEY = k1 + k2;
           </button>
 
           <p style={{ fontSize:10, color:C.textMuted, textAlign:"center", lineHeight:1.5 }}>
-            Análise gerada por IA para uso interno · Consulte o jurídico para decisões finais
+            <div style={{display:"flex",gap:8,justifyContent:"center",marginTop:8}}>
+  <button onClick={()=>window.print()} style={{padding:"8px 20px",background:"#2563EB",color:"#fff",border:"none",borderRadius:6,fontSize:12,fontWeight:700,cursor:"pointer",letterSpacing:"0.06em"}}>🖨 Imprimir Análise</button>
+</div> · Consulte o jurídico para decisões finais
           </p>
         </div>
 
