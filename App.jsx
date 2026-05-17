@@ -350,9 +350,10 @@ export default function App() {
       const raw = data.content?.map(b=>b.text||"").join("")||"";
       const start = raw.indexOf("{");
       const end = raw.lastIndexOf("}");
-      if (start === -1 || end === -1) throw new Error("Resposta inválida da IA. Tente novamente.");
-      const clean = raw.substring(start, end + 1);
-      setResult(JSON.parse(clean));
+      if (start === -1 || end === -1) throw new Error("Resposta inválida. Tente novamente.");
+let clean = raw.substring(start, end + 1);
+clean = clean.replace(/,\s*}/g,"}").replace(/,\s*]/g,"]");
+setResult(JSON.parse(clean));
       setActiveTab("violacoes");
     } catch(err) {
       setError(`Erro ao analisar: ${err.message}`);
