@@ -217,9 +217,8 @@ const ANTHROPIC_API_KEY = k1 + k2;
           "anthropic-dangerous-direct-browser-access": "true",
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-6
-",
-          max_tokens: 4000,
+          model: "claude-sonnet-4-6",
+          max_tokens: 8000,
           system: buildPrompt(contractType),
           messages: [{ role: "user", content: messageContent }],
         }),
@@ -229,8 +228,7 @@ const ANTHROPIC_API_KEY = k1 + k2;
       if (data.error) throw new Error(data.error.message);
       const raw = data.content?.map(b => b.text || "").join("") || "";
       const sanitized = raw.replace(/```json|```/g, "").replace(/:\s*R\$\s*/g, ': "R$ ').replace(/(\d+)\.(\d{3})/g, '$1$2').trim();
-setResult(JSON.parse(sanitized));
-    } catch (err) {
+const idx = raw.lastIndexOf("}"); setResult(JSON.parse(raw.substring(raw.indexOf("{"), idx+1)));
       setError(`Erro ao analisar: ${err.message}. Verifique se a chave da API está correta.`);
     } finally {
       setLoading(false);
