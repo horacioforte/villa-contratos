@@ -248,6 +248,16 @@ const ANTHROPIC_API_KEY = k1 + k2;
     <div style={{ minHeight:"100vh", background:C.bg, fontFamily:"'Inter','Segoe UI',system-ui,sans-serif", color:C.text }}>
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@media print {
+  body { background: white !important; }
+  *[style*="width:400"] { display: none !important; }
+  *[style*="width: 400"] { display: none !important; }
+  *[style*="minWidth:400"] { display: none !important; }
+  *[style*="overflow:hidden"] { overflow: visible !important; height: auto !important; }
+  *[style*="height:calc"] { height: auto !important; }
+  header { display: none !important; }
+} { to { transform: rotate(360deg); } }
         @keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
         * { box-sizing: border-box; }
         textarea { font-family: inherit; }
